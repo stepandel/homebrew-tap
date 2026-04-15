@@ -5,13 +5,13 @@
 class Tickets < Formula
   desc "Linear-style ticket tracker where every ticket is a markdown file"
   homepage "https://github.com/stepandel/tickets-md"
-  version "0.1.6"
+  version "0.1.7"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/stepandel/tickets-md/releases/download/v0.1.6/tickets_0.1.6_darwin_amd64.tar.gz"
-      sha256 "79188fd7c557181bc819920c6b1fc2e61a2f234799d2ad113e0d1544a404a307"
+      url "https://github.com/stepandel/tickets-md/releases/download/v0.1.7/tickets_0.1.7_darwin_amd64.tar.gz"
+      sha256 "99abbeb7708d3ea42499b2508675040055671cf11cfd54c1d90d0414ebacf531"
 
       define_method(:install) do
         bin.install "tickets"
@@ -19,8 +19,8 @@ class Tickets < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/stepandel/tickets-md/releases/download/v0.1.6/tickets_0.1.6_darwin_arm64.tar.gz"
-      sha256 "de311329d4f73210dcae3837ec272bb38c3ba94a7632ec36d8f082a3799efa68"
+      url "https://github.com/stepandel/tickets-md/releases/download/v0.1.7/tickets_0.1.7_darwin_arm64.tar.gz"
+      sha256 "9259b4beae12b3b9bba7ce0bd6ffc41125a845e8b0355b1f15fad03553d680cc"
 
       define_method(:install) do
         bin.install "tickets"
@@ -31,16 +31,16 @@ class Tickets < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/tickets-md/releases/download/v0.1.6/tickets_0.1.6_linux_amd64.tar.gz"
-      sha256 "2a5087fc670bb914be055d2d560327b8f672a93f68473f010b72bf209ce67788"
+      url "https://github.com/stepandel/tickets-md/releases/download/v0.1.7/tickets_0.1.7_linux_amd64.tar.gz"
+      sha256 "e95e8a2762abd5b66ae9397b14f60e159966753a088ed4cd142d10179b7728f5"
       define_method(:install) do
         bin.install "tickets"
         generate_completions_from_executable(bin/"tickets", "completion")
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/tickets-md/releases/download/v0.1.6/tickets_0.1.6_linux_arm64.tar.gz"
-      sha256 "ed013c2b9c742af3f8ec80f48f693f7380b79dde9fdde90cbb0fb102e9d9b663"
+      url "https://github.com/stepandel/tickets-md/releases/download/v0.1.7/tickets_0.1.7_linux_arm64.tar.gz"
+      sha256 "a7f44a37d2c30187b31cc3d36b0d861a0dbb45ec09439928003fc9f41babbbeb"
       define_method(:install) do
         bin.install "tickets"
         generate_completions_from_executable(bin/"tickets", "completion")
