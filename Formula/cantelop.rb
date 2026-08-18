@@ -4,29 +4,29 @@
 class Cantelop < Formula
   desc "Deploy complete API and harness releases to Cantelop"
   homepage "https://cantelop.com"
-  version "0.1.0-rc.11"
+  version "0.1.0-rc.12"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.1.0-rc.11/cantelop_0.1.0-rc.11_darwin_amd64.tar.gz"
-      sha256 "09bb28a1382fb27779084abf60c3f9b21f87d5f0fc7787f7992cd219962befce"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.1.0-rc.12/cantelop_0.1.0-rc.12_darwin_amd64.tar.gz"
+      sha256 "cd5aae3cdd9e742123cfc882ea2e15d36101a7fabc4733254314fa293f37cbfe"
     end
 
     if Hardware::CPU.arm?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.1.0-rc.11/cantelop_0.1.0-rc.11_darwin_arm64.tar.gz"
-      sha256 "4c805416cc39ac5f3fbcbb9832ce640e5c8446a474044e0eb5e5a9f0795571f5"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.1.0-rc.12/cantelop_0.1.0-rc.12_darwin_arm64.tar.gz"
+      sha256 "9688f1f24e29237785b44e180f2b878d36e5032d5bbe32ce29883258e0158747"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.1.0-rc.11/cantelop_0.1.0-rc.11_linux_amd64.tar.gz"
-      sha256 "fe6470ae6d926c5651a3854f6f27b53c6d38efe358bcc1ad41b83f05e37ddb4a"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.1.0-rc.12/cantelop_0.1.0-rc.12_linux_amd64.tar.gz"
+      sha256 "de16f72538cfcb9f7b8e23165f4c79e284fb1a69f48796f98c2d1f9fb46fd801"
     end
 
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.1.0-rc.11/cantelop_0.1.0-rc.11_linux_arm64.tar.gz"
-      sha256 "7776a0f4720a58e2c40d03c633525a0ee6cd837d4de4be4b49c4603082a6aa41"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.1.0-rc.12/cantelop_0.1.0-rc.12_linux_arm64.tar.gz"
+      sha256 "3cededcd3ad81cd4361e1d5450d17562bdaff98fb31c26342ac15aa70946b166"
     end
   end
 
