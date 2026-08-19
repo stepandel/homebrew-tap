@@ -4,29 +4,29 @@
 class Cantelop < Formula
   desc "Deploy complete API and harness releases to Cantelop"
   homepage "https://cantelop.com"
-  version "0.1.0"
+  version "0.2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.1.0/cantelop_0.1.0_darwin_amd64.tar.gz"
-      sha256 "48a51bd7e38f0cb7441d50901195af5a60e40cb18f20d440f371cc5fb7e0cd05"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.2.0/cantelop_0.2.0_darwin_amd64.tar.gz"
+      sha256 "ccfac39242324dafbd9c6271fd57418243f4daf20cb4d13cd989543e27360655"
     end
 
     if Hardware::CPU.arm?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.1.0/cantelop_0.1.0_darwin_arm64.tar.gz"
-      sha256 "602f0c3914c0c7bf481dada34a303ccd2d651bd4660b5dd714c07f0e4353081d"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.2.0/cantelop_0.2.0_darwin_arm64.tar.gz"
+      sha256 "efe2483180ea52980d7bd59729f5d5a1f871ac1860318b730ba3c3342e3f523d"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.1.0/cantelop_0.1.0_linux_amd64.tar.gz"
-      sha256 "3e97f44c676bd14dd413f41fca7eb9d3a72f72d1618fa798936af20569a0eba0"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.2.0/cantelop_0.2.0_linux_amd64.tar.gz"
+      sha256 "dcc4ba5649392180983812dafa52c5ea1aef6eca434332eea3c9279dd49ca92d"
     end
 
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.1.0/cantelop_0.1.0_linux_arm64.tar.gz"
-      sha256 "d3f1d0ad361ad1144d1622784b7f0aa7ef3887dc462d1a03c81b469c67880228"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.2.0/cantelop_0.2.0_linux_arm64.tar.gz"
+      sha256 "68276e154ca34940de3463526eaf276800edc0c868be412f66435d9b7fbe4f68"
     end
   end
 
