@@ -2,31 +2,31 @@
 # frozen_string_literal: true
 
 class Cantelop < Formula
-  desc "Deploy complete API and harness releases to Cantelop"
+  desc "Deploy complete API and Session runtime releases to Cantelop"
   homepage "https://cantelop.com"
-  version "0.2.1"
+  version "0.3.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.2.1/cantelop_0.2.1_darwin_amd64.tar.gz"
-      sha256 "d3163c7b05c6ea1ac9cc53c872294df08083345ac879a4632ff19280ab25c117"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.3.0/cantelop_0.3.0_darwin_amd64.tar.gz"
+      sha256 "1137db18521fe684782281a391e57adad9fda61f56a16cf1550819bca308504c"
     end
 
     if Hardware::CPU.arm?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.2.1/cantelop_0.2.1_darwin_arm64.tar.gz"
-      sha256 "1a16417c2282b1e7c4863e61d2ebaf5fe09b6e4f81272057ba0d4301c986c2a7"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.3.0/cantelop_0.3.0_darwin_arm64.tar.gz"
+      sha256 "321d411caa00e0f4bdb0c34fc2b7d88770bac79f87cbed40e1471c1a10e17743"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.2.1/cantelop_0.2.1_linux_amd64.tar.gz"
-      sha256 "854c23ac136d72ff0c3038ee02e47f895ef88f7d99902b5737c5ea36a852efff"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.3.0/cantelop_0.3.0_linux_amd64.tar.gz"
+      sha256 "abea409cf85822ab7f2c057a59164217cf3e83bff32b8604521f1598ded46b46"
     end
 
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.2.1/cantelop_0.2.1_linux_arm64.tar.gz"
-      sha256 "0d857960f14293bec15c3d707db29f9d52ed46dad887a3bef12f105e20752943"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.3.0/cantelop_0.3.0_linux_arm64.tar.gz"
+      sha256 "ef16fd38ee1acd1e118fa3f0069d178d1971104afede294daca05c62af7d17d0"
     end
   end
 
