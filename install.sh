@@ -1,9 +1,71 @@
 #!/bin/sh
 set -eu
 
-version=0.3.2
-release_base=https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.3.2
-install_directory="${CANTELOP_INSTALL_DIR:-${HOME:?HOME must be set}/.local/bin}"
+version=0.3.3
+release_base=https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.3.3
+default_install_directory="${HOME:?HOME must be set}/.local/bin"
+install_directory="${CANTELOP_INSTALL_DIR:-$default_install_directory}"
+
+file_has_line() {
+  file=$1
+  wanted=$2
+  [ -f "$file" ] || return 1
+  while IFS= read -r existing_line || [ -n "$existing_line" ]; do
+    [ "$existing_line" = "$wanted" ] && return 0
+  done <"$file"
+  return 1
+}
+
+configure_path() {
+  case ":${PATH:-}:" in
+    *":${install_directory}:"*) return ;;
+  esac
+  if [ -n "${CANTELOP_NO_MODIFY_PATH:-}" ]; then
+    echo "$install_directory is not on PATH; profile update skipped by CANTELOP_NO_MODIFY_PATH."
+    return
+  fi
+  if [ "$install_directory" != "$default_install_directory" ]; then
+    echo "$install_directory is not on PATH; add this custom directory to your shell profile."
+    return
+  fi
+
+  shell_name=${SHELL##*/}
+  case "$shell_name" in
+    zsh)
+      profile="$HOME/.zshrc"
+      profile_line='export PATH="$HOME/.local/bin:$PATH" # added by cantelop installer'
+      ;;
+    bash)
+      if [ "$(uname -s)" = Darwin ]; then
+        profile="$HOME/.bash_profile"
+      else
+        profile="$HOME/.bashrc"
+      fi
+      profile_line='export PATH="$HOME/.local/bin:$PATH" # added by cantelop installer'
+      ;;
+    fish)
+      profile="${XDG_CONFIG_HOME:-$HOME/.config}/fish/conf.d/cantelop.fish"
+      profile_line='set -gx PATH "$HOME/.local/bin" $PATH # added by cantelop installer'
+      ;;
+    *)
+      profile="$HOME/.profile"
+      profile_line='export PATH="$HOME/.local/bin:$PATH" # added by cantelop installer'
+      ;;
+  esac
+
+  mkdir -p "${profile%/*}"
+  if file_has_line "$profile" "$profile_line"; then
+    echo "$default_install_directory is already configured in $profile."
+  elif printf '
+%s
+' "$profile_line" >>"$profile"; then
+    echo "Added $default_install_directory to PATH in $profile."
+  else
+    echo "Could not update $profile; add $default_install_directory to PATH manually." >&2
+    return
+  fi
+  echo "Restart your shell, or run: . $profile"
+}
 
 for command in curl tar install; do
   if ! command -v "$command" >/dev/null 2>&1; then
@@ -11,6 +73,18 @@ for command in curl tar install; do
     exit 1
   fi
 done
+
+case "$install_directory" in
+  /*) ;;
+  *) echo "CANTELOP_INSTALL_DIR must be an absolute path" >&2; exit 1 ;;
+esac
+
+existing_cantelop="$(command -v cantelop 2>/dev/null || true)"
+if [ -n "$existing_cantelop" ] && [ "$existing_cantelop" != "$install_directory/cantelop" ]; then
+  echo "cantelop is already installed at $existing_cantelop" >&2
+  echo "Remove the existing installation before installing another copy." >&2
+  exit 1
+fi
 
 case "$(uname -s)" in
   Darwin) operating_system=darwin ;;
@@ -26,10 +100,10 @@ esac
 
 platform="${operating_system}_${architecture}"
 case "$platform" in
-  darwin_amd64) expected_sha256=b45b1d55146eb0d6092e279d06280de147baba3a86f2f64b4226c8e85917a61c ;;
-  darwin_arm64) expected_sha256=bdfda8fbf4faafa29e1e504c984c419d0f77b076827b32198a6d17e999aebd1b ;;
-  linux_amd64) expected_sha256=8b1942ec7d7387bca3ca1682d765f7363fcf5c74886fa369892f6ddb9dc8407a ;;
-  linux_arm64) expected_sha256=5e9c3a3286d27020ceec39fbff22d2eef1c3a45b90600487d05f9170ec0bca42 ;;
+  darwin_amd64) expected_sha256=dc6fa3efb2dccb4970de7b7b75c88f54eb989e7fbed29d5eeb5b63b2ba0bbd0a ;;
+  darwin_arm64) expected_sha256=3a903b77e636dec93393e8d699af69b85eea4e67c660f08edb3b8fd801033461 ;;
+  linux_amd64) expected_sha256=76f3838dbc3b4f2cd65cb9b1f60f8e32023fe16c054a2927e9a22d22a228c187 ;;
+  linux_arm64) expected_sha256=a6a659b78dd17ae78931b212d20d18ed85b03fe35c18aed51bd6c57b5ccfde0f ;;
   *) echo "cantelop does not provide an archive for $platform" >&2; exit 1 ;;
 esac
 
@@ -63,7 +137,4 @@ install -m 0755 "${temporary_directory}/cantelop" "$staged_path"
 mv -f "$staged_path" "${install_directory}/cantelop"
 
 echo "Installed cantelop $version to ${install_directory}/cantelop"
-case ":${PATH:-}:" in
-  *":${install_directory}:"*) ;;
-  *) echo "Add $install_directory to PATH to run cantelop." ;;
-esac
+configure_path
