@@ -4,29 +4,29 @@
 class Cantelop < Formula
   desc "Deploy complete API and Session runtime releases to Cantelop"
   homepage "https://cantelop.com"
-  version "0.6.0"
+  version "0.6.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.6.0/cantelop_0.6.0_darwin_amd64.tar.gz"
-      sha256 "32bb2ba848086265b3873b12de12fee4c1d08b9dd01dcf30931ff15539b83e5b"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.6.1/cantelop_0.6.1_darwin_amd64.tar.gz"
+      sha256 "9361a3cbb59bb5f7256a35c4f4bff8147adc8f65c9631c98cd8102daf74535f4"
     end
 
     if Hardware::CPU.arm?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.6.0/cantelop_0.6.0_darwin_arm64.tar.gz"
-      sha256 "756cdda72bd8d1b9a63cd7ea2ab00835c555e688b2586cc64a807f40152ab6bb"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.6.1/cantelop_0.6.1_darwin_arm64.tar.gz"
+      sha256 "1a0fdbb9bef65cd3e71a33bfc225cfb2c083da36db6df4642a3c32d26084f8af"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.6.0/cantelop_0.6.0_linux_amd64.tar.gz"
-      sha256 "4fb1a967668143782ede1c9a8299c7bb7950c463ec9676eda99eb6454dc811e6"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.6.1/cantelop_0.6.1_linux_amd64.tar.gz"
+      sha256 "3c3b29e324ae091427f234c7723212a53c648ff407928c97c83ceb59ba0ca63c"
     end
 
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.6.0/cantelop_0.6.0_linux_arm64.tar.gz"
-      sha256 "16a812fa16c200735ca9d0112a02dafe8dc686a923fe52e18f7dcb89ceeac28e"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.6.1/cantelop_0.6.1_linux_arm64.tar.gz"
+      sha256 "554fad056a75a84f6f6c82179b1cc9609609f361bcc4f5d821873618f8c87d3b"
     end
   end
 
