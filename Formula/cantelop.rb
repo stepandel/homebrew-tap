@@ -4,29 +4,29 @@
 class Cantelop < Formula
   desc "Deploy complete API and Session runtime releases to Cantelop"
   homepage "https://cantelop.com"
-  version "0.5.1"
+  version "0.6.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.5.1/cantelop_0.5.1_darwin_amd64.tar.gz"
-      sha256 "013846ad72ea5ad9e46dc870102a5e4412a829f4354bcddbe5b1cb5bba97a2ce"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.6.0/cantelop_0.6.0_darwin_amd64.tar.gz"
+      sha256 "32bb2ba848086265b3873b12de12fee4c1d08b9dd01dcf30931ff15539b83e5b"
     end
 
     if Hardware::CPU.arm?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.5.1/cantelop_0.5.1_darwin_arm64.tar.gz"
-      sha256 "12e2dacc5b1230f8295c74c26f0379afc7f732bee2c1d11fbb4cd5881f575c6f"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.6.0/cantelop_0.6.0_darwin_arm64.tar.gz"
+      sha256 "756cdda72bd8d1b9a63cd7ea2ab00835c555e688b2586cc64a807f40152ab6bb"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.5.1/cantelop_0.5.1_linux_amd64.tar.gz"
-      sha256 "c62c2b4753ed4db409274a94562e433dc8526e1ff74ae8c81c4416b053a31364"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.6.0/cantelop_0.6.0_linux_amd64.tar.gz"
+      sha256 "4fb1a967668143782ede1c9a8299c7bb7950c463ec9676eda99eb6454dc811e6"
     end
 
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.5.1/cantelop_0.5.1_linux_arm64.tar.gz"
-      sha256 "3b63b2df7704ee336fc20cb7face8d4bd111528b9f8c3e8996001dd358cdbaa7"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.6.0/cantelop_0.6.0_linux_arm64.tar.gz"
+      sha256 "16a812fa16c200735ca9d0112a02dafe8dc686a923fe52e18f7dcb89ceeac28e"
     end
   end
 
