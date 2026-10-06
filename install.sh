@@ -1,8 +1,8 @@
 #!/bin/sh
 set -eu
 
-version=0.12.0
-release_base=https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.12.0
+version=0.13.0
+release_base=https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.13.0
 default_install_directory="${HOME:?HOME must be set}/.local/bin"
 install_directory="${CANTELOP_INSTALL_DIR:-$default_install_directory}"
 
@@ -100,10 +100,10 @@ esac
 
 platform="${operating_system}_${architecture}"
 case "$platform" in
-  darwin_amd64) expected_sha256=3c0c72deab8579d4c253eff627b55e9d1160eb2f88f3c1e2fa6b1c2e82f8b678 ;;
-  darwin_arm64) expected_sha256=91566095c121f2fc9ff0b543130046ea492204f68f3945d04dede76892aed090 ;;
-  linux_amd64) expected_sha256=7c9347d485c532d6e37666ccc089d382c67e9aec53885019ad8b75ee8dab24dc ;;
-  linux_arm64) expected_sha256=ae454a23397c6dd361d7edbf6a52390616e8b3059a26af31dd388bf7f1d94395 ;;
+  darwin_amd64) expected_sha256=7fd56aa6985be8af7572bf5e39c11bac8517198a25754b2ba01d289518e88270 ;;
+  darwin_arm64) expected_sha256=e50af304af989cabe4797475963b7fa204c0b0fae181b6079d97944993f5191b ;;
+  linux_amd64) expected_sha256=06412c7c35ac0c23b678ccc445a7ed7a29a8346ac78ba402b14dcde1fc96894e ;;
+  linux_arm64) expected_sha256=4cc8e4741ced5aeb18c3ff4f3dab37d0f7aa2f1903ecfffc7a6e1a3750d42f9b ;;
   *) echo "cantelop does not provide an archive for $platform" >&2; exit 1 ;;
 esac
 
