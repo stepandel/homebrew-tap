@@ -4,29 +4,29 @@
 class Cantelop < Formula
   desc "Deploy complete API and Session runtime releases to Cantelop"
   homepage "https://cantelop.com"
-  version "0.13.1"
+  version "0.14.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.13.1/cantelop_0.13.1_darwin_amd64.tar.gz"
-      sha256 "b17a45ddc9fc7ec1db9ab8db4cc058db4e1921956e20e202a3f73825c08fa419"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.14.0/cantelop_0.14.0_darwin_amd64.tar.gz"
+      sha256 "1d56384b621ff98766b0dc94e1132cf82cc987fadca4c92c0c7de201b5e1e490"
     end
 
     if Hardware::CPU.arm?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.13.1/cantelop_0.13.1_darwin_arm64.tar.gz"
-      sha256 "a18101e0eda4e0888d9d3d50ab0d9c32922b898270f6e33d4dea49173e32e532"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.14.0/cantelop_0.14.0_darwin_arm64.tar.gz"
+      sha256 "49d4a2149a9dc76693477e0d652d2eec4bdc43b952cf019b4f6467590efdcdcd"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.13.1/cantelop_0.13.1_linux_amd64.tar.gz"
-      sha256 "de15dedd7f5367dd6eea347c20ded8ce36dca177cedc901c0eb740be223ff350"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.14.0/cantelop_0.14.0_linux_amd64.tar.gz"
+      sha256 "db65650cc6f66cb19e2f764308c9190e6c79b44f2c379af1a20e929288320966"
     end
 
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.13.1/cantelop_0.13.1_linux_arm64.tar.gz"
-      sha256 "20aceed77c1d4d8ea7eae958227a17e47600d7ba5ce42d55d532b1aaca757b6f"
+      url "https://github.com/stepandel/homebrew-tap/releases/download/cantelop-v0.14.0/cantelop_0.14.0_linux_arm64.tar.gz"
+      sha256 "a2344ec7e6fed1fa96e9c02008484b1b2bdc9f00e3103e98d35b6baf1617c36a"
     end
   end
 
